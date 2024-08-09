@@ -12,13 +12,13 @@ data = """
 Semana 1 - 05/08 à 11/08
 
 5x
-Cássio - 90 + 60 + 30
+Cássio - 90 + 60 + 30 + 60
 Fernanda A. - 72 + 47 + 47 + 36
 Fernanda S. - 30 + 35 
 Fernanda W. - 70 + 89 + [64] + 80
 Gabi - 75 + 69 + [62] + 63
 Luciano - 70+34+
-Marina - 60 + 60 + [34]
+Marina - 60 + 60 + [34] + 60
 Pedro Augusto - [30] + 47 + 32 + 32
 Samuel - 80 +70 + 40 + [48] + 52
 
@@ -39,7 +39,7 @@ Bianca - 43 + 39
 Brenda -
 Camila - 31
 Guilherme -
-Hamilton - [98] + 46
+Hamilton - [98] + 46 + 41
 Patrícia -
 Ravier - [129] + 39
 Talita - 64 + 57 + 60
@@ -53,6 +53,7 @@ Keren - 25+
 Leandro -
 Rebeca -32
 Thaís - 56
+
 
 
 """
