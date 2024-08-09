@@ -149,6 +149,7 @@ st.markdown("###")
 
 #sidebar
 #st.sidebar.image("material/img/logo.png")
+st.sidebar.title("CRENTE FIT 2.0")
 st.sidebar.header("Escolha seus filtros: ")
 
 #FILTROS
