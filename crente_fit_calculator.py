@@ -151,7 +151,7 @@ st.sidebar.header("Escolha seus filtros: ")
 
 #FILTROS
 #Tipo de Modalidade
-tipoModalidade = st.sidebar.multiselect("Escolha a modalidade: ",result["type"].unique())
+tipoModalidade = st.sidebar.multiselect("Escolha a modalidade: ",result["type"].unique().sort())
 if not tipoModalidade:
     df_result2 = result.copy()
     df_rank2 = df_ranked.copy()
@@ -160,7 +160,7 @@ else:
     df_rank2 = df_ranked[df_ranked["type"].isin(tipoModalidade)]
 
 #Tipo de Nome
-nomeCrente = st.sidebar.multiselect("Escolha o Crente: ",df_result2["name"].unique())
+nomeCrente = st.sidebar.multiselect("Escolha o Crente: ",df_result2["name"].unique().sort())
 if not nomeCrente:
     df_result3 = df_result2.copy()
     df_rank3 = df_rank2.copy()
