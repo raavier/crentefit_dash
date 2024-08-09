@@ -1,5 +1,11 @@
 import pandas as pd
 import re
+import streamlit as st
+#import plotly.express as px
+#import plotly.graph_objects as go
+#from transform_data import DataProcessor, readTransformgsheet
+#from tabs import tab1, tab2, tab3, tab4, tab5, tab6
+import numpy as np
 
 data = """
 Semana 1 - 05/08 à 11/08
@@ -102,7 +108,7 @@ result = df.groupby(["name", "semana", "type"]).agg(
     count_minutes=("minutes", "count"),
     sum_selected_aerobic_minutes=("minutes", lambda x: x[df.loc[x.index, "selected_aerobic"]].sum())
 ).reset_index()
-import numpy as np
+
 
 # Assuming 'result' is a pandas DataFrame and 'type' is a column in it
 result['type_num'] = result['type'].str.replace('x', '').astype(int)
@@ -131,12 +137,7 @@ df_ranked = df_ranked.sort_values(by=['type', 'rank']).reset_index(drop=True)
 #print(result)
 print(df_ranked)
 
-import pandas as pd
-import streamlit as st
-import plotly.express as px
-import plotly.graph_objects as go
-#from transform_data import DataProcessor, readTransformgsheet
-#from tabs import tab1, tab2, tab3, tab4, tab5, tab6
+
 
 st.set_page_config(page_title="Crente Fit 2.0",layout="wide")
 
