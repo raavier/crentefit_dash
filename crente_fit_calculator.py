@@ -6,6 +6,7 @@ import streamlit as st
 #from transform_data import DataProcessor, readTransformgsheet
 #from tabs import tab1, tab2, tab3, tab4, tab5, tab6
 import numpy as np
+import plotly.express as px
 
 data = """
 Semana 1 - 05/08 à 11/08
@@ -18,13 +19,13 @@ Fernanda W. - 70 + 89 + [64] + 80
 Gabi - 75 + 69 + [62] + 63
 Luciano - 70+34+
 Marina - 60 + 60 + [34]
-Pedro Augusto - [30] + 47 + 32
-Samuel - 80 +70 + 40 + [48]
+Pedro Augusto - [30] + 47 + 32 + 32
+Samuel - 80 +70 + 40 + [48] + 52
 
 4x
 Amanda M. - 50 + 60 + [54] + 60
 Caio - 60 + 62 + 38
-David - 42 + 36
+David - [42] + 36 + 35
 João Marcos - 60 + 60 + 50 + 60
 Lívia - 60 + 54 + [40] + 31
 Mairon - 38
@@ -33,7 +34,7 @@ Mary - 47+ 73+78
    
 3x
 Amanda G. - 88 + 32 + 34
-André - 32
+André - 32 + [85]
 Bianca - 43 + 39
 Brenda -
 Camila - 31
@@ -45,13 +46,14 @@ Talita - 64 + 57 + 60
 
 2x
 Anna - 33
-Carol -
+Carol - [85] +
 João Vitor -
 Julia - 53
 Keren - 25+
 Leandro -
 Rebeca -32
 Thaís - 56
+
 
 """
 # Split the data by "Semana" to handle multiple weeks
@@ -187,9 +189,9 @@ filtered_rank_df = filtered_rank_df.rename(columns={
     "name": "Nome",
     "type": "Modalidade",
     "total_minutes_week": "Soma Minutos na Semana",
-    "total_points_week": "Pontos na Semana",
-    "total_sum_selected_aerobic_minutes": "Minutos de Aerobico para desempate",
-    "rank": "Ranking"
+    "total_points_week": "Pontos Semana",
+    "total_sum_selected_aerobic_minutes": "Aerobico para Desempate",
+    "rank": "Rank"
 })
 
 filtered_result_df = filtered_result_df.rename(columns={
@@ -197,10 +199,37 @@ filtered_result_df = filtered_result_df.rename(columns={
     "type": "Modalidade",
     "sum_minutes": "Soma de Minutos",
     "count_minutes": "Quantidade de Atividades Registradas na Semana",
-    "points_week": "Pontos na Semana",
-    "sum_selected_aerobic_minutes": "Minutos de Aerobico para desempate"
+    "points_week": "Pontos Semana",
+    "sum_selected_aerobic_minutes": "Aerobico para Desempate"
 })
     
 filtered_result_df = filtered_result_df.drop(columns=['type_num'])
-st.write(filtered_result_df)
-st.write(filtered_rank_df)
+
+
+#st.write(filtered_result_df)
+#st.write(filtered_rank_df)
+selected_columns_df = filtered_rank_df[["Nome", "Pontos Semana", "Aerobico para Desempate", "Rank", "Modalidade"]]
+
+with st.container():
+    st.subheader('Minutos exercitados por Crente:')
+    fig = px.bar(filtered_result_df, x='Nome', color="Modalidade",y="Soma de Minutos",
+        labels={'Nome': '', "Modalidade": 'Modalidade', 'count':''},
+        category_orders={'Modalidade': sorted(filtered_result_df['Modalidade'].unique())}) 
+    st.plotly_chart(fig, use_container_width=True)
+    st.markdown("---")   
+
+with st.container():
+    col1, col2,col3, col4 = st.columns([1,1,1,1])
+    with col1:
+        st.subheader('Modalidade 2x:')
+        st.table(selected_columns_df[selected_columns_df['Modalidade'] == '2x'].drop(columns=["Modalidade"]))
+    with col2:
+        st.subheader('Modalidade 3x:')
+        st.table(selected_columns_df[selected_columns_df['Modalidade'] == '3x'].drop(columns=["Modalidade"]))
+    with col3:
+        st.subheader('Modalidade 4x:')
+        st.table(selected_columns_df[selected_columns_df['Modalidade'] == '4x'].drop(columns=["Modalidade"]))
+    with col4:
+        st.subheader('Modalidade 5x:')
+        st.table(selected_columns_df[selected_columns_df['Modalidade'] == '5x'].drop(columns=["Modalidade"]))
+    st.markdown("---")        
