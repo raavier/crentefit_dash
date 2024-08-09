@@ -135,7 +135,7 @@ df_ranked = pd.concat(ranked_dfs).reset_index(drop=True)
 df_ranked = df_ranked.sort_values(by=['type', 'rank']).reset_index(drop=True)
 
 #print(result)
-print(df_ranked)
+#print(df_ranked)
 
 
 
