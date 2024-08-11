@@ -12,47 +12,48 @@ data = """
 Semana 1 - 05/08 à 11/08
 
 5x
-Cássio - 90 + 60 + 30 + 60
-Fernanda A. - 72 + 47 + 47 + 36
+Cássio - 90 + 60 + 30 + 60 +[50]
+Fernanda A. - 72 + 47 + 47 + 36 +[ 54]
 Fernanda S. - 30 + 35 
-Fernanda W. - 70 + 89 + [64] + 80
-Gabi - 75 + 69 + [62] + 63
-Luciano - 70+34+
-Marina - 60 + 60 + [34] + 60
-Pedro Augusto - [30] + 47 + 32 + 32
-Samuel - 80 +70 + 40 + [48] + 52
+Fernanda W. - 70 + 89 + [64] + 80 + 80 
+Gabi - 75 + 69 + [62] + 63 + 52
+Luciano - 70+34+47+49+121+[30]
+Marina - 60 + 60 + [34] + 60 + 41
+Pedro Augusto - [30] + 47 + 32 + 32 + 60 + 30
+Samuel - 80 +70 + 40 + [48] + 52 + 36
 
 4x
-Amanda M. - 50 + 60 + [54] + 60
-Caio - 60 + 62 + 38
-David - [42] + 36 + 35
-João Marcos - 60 + 60 + 50 + 60
+Amanda M. - 50 + 60 + [54] + 60 + 40
+Caio - 60 + 62 + 38 + [84]
+David - [42] + 36 + 35 + 33
+João Marcos - 60 + 60 + 50 + 60 + [40]
 Lívia - 60 + 54 + [40] + 31
 Mairon - 38
-Naama - 46+ [31] + 50
-Mary - 47+ 73+78
+Naama - 46+ [31] + 50 +35
+Mary - 47+ 73+78+64
    
 3x
-Amanda G. - 88 + 32 + 34
-André - 32 + [85]
-Bianca - 43 + 39
+Amanda G. - [88] + 32 + 34 + 36
+André - 32 + [85] + 95
+Bianca - 43 + 39 + 62
 Brenda -
 Camila - 31
-Guilherme -
+Guilherme - 41 + 45
 Hamilton - [98] + 46 + 41
 Patrícia -
-Ravier - [129] + 39
-Talita - 64 + 57 + 60
+Ravier - [129] + 39 + 42
+Talita - 64 + 57 + 60 + [53]
 
 2x
 Anna - 33
-Carol - [85] +
+Carol - [85] + 95
 João Vitor -
-Julia - 53
+Julia - 53 + 41 
 Keren - 25+
-Leandro -
-Rebeca -32
-Thaís - 56
+Leandro - 34
+Rebeca -32+40+62 
+Thaís - 56 + [31]
+
 
 
 
