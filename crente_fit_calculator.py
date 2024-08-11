@@ -13,7 +13,7 @@ Semana 1 - 05/08 à 11/08
 
 5x
 Cássio - 90 + 60 + 30 + 60 +[50]
-Fernanda A. - 72 + 47 + 47 + 36 +[ 54]
+Fernanda A. - 72 + 47 + 47 + 36 +[54]
 Fernanda S. - 30 + 35 
 Fernanda W. - 70 + 89 + [64] + 80 + 80 
 Gabi - 75 + 69 + [62] + 63 + 52
@@ -53,7 +53,6 @@ Keren - 25+
 Leandro - 34
 Rebeca -32+40+62 
 Thaís - 56 + [31]
-
 
 
 
