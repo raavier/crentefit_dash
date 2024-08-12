@@ -113,7 +113,11 @@ result = df.groupby(["name", "semana", "type"]).agg(
 
 # Assuming 'result' is a pandas DataFrame and 'type' is a column in it
 result['type_num'] = result['type'].str.replace('x', '').astype(int)
-result['points_week'] = np.where(result['count_minutes'] >= result['type_num'], 3, 0)
+result['week_complete'] = np.where(
+    result['count_minutes'] > 0,
+    np.where(result['count_minutes'] >= result['type_num'], 3, 1),
+    0
+)
 
 df_ranking = result.groupby(['name', 'type']).agg(
     total_minutes_week=('sum_minutes','sum'),
