@@ -51,8 +51,53 @@ João Vitor -
 Julia - 53 + 41 
 Keren - 25+
 Leandro - 34
-Rebeca -32+40+62 
+Rebeca - 32 + 40 + 62 
 Thaís - 56 + [31]
+
+Semana 2 - 12/08 à 18/08
+
+5x
+Cássio - 
+Fernanda A. -
+Fernanda S. - 40
+Fernanda W. - 82
+Gabi -
+Luciano -
+Marina -
+Pedro Augusto -
+Samuel - 96
+
+4x
+Amanda M. - 60
+Caio -
+David - 
+João Marcos - 
+Lívia -
+Mairon -
+Mary -
+Naama -
+
+3x
+Amanda G. -
+André -
+Bianca -
+Brenda -
+Camila -
+Guilherme -
+Hamilton - 44 + 
+Patrícia -
+Ravier - 
+Talita - 
+
+2x
+Anna -
+Carol - 
+João Vitor -
+Julia - 
+Keren -
+Leandro -
+Rebeca - 
+Thaís -
 
 """
 # Split the data by "Semana" to handle multiple weeks
@@ -189,8 +234,8 @@ filtered_rank_df = filtered_rank_df.rename(columns={
     "name": "Nome",
     "type": "Modalidade",
     "total_minutes_week": "Soma Minutos na Semana",
-    "total_points_week": "Pontos Semana",
-    "total_sum_selected_aerobic_minutes": "Aerobico para Desempate",
+    "total_points_week": "Pontuação",
+    "total_sum_selected_aerobic_minutes": "Desempate (min)",
     "rank": "Rank"
 })
 
@@ -199,8 +244,8 @@ filtered_result_df = filtered_result_df.rename(columns={
     "type": "Modalidade",
     "sum_minutes": "Soma de Minutos",
     "count_minutes": "Quantidade de Atividades Registradas na Semana",
-    "points_week": "Pontos Semana",
-    "sum_selected_aerobic_minutes": "Aerobico para Desempate"
+    "points_week": "Pontuação",
+    "sum_selected_aerobic_minutes": "Desempate (min)"
 })
     
 filtered_result_df = filtered_result_df.drop(columns=['type_num'])
@@ -208,8 +253,8 @@ filtered_result_df = filtered_result_df.drop(columns=['type_num'])
 
 #st.write(filtered_result_df)
 #st.write(filtered_rank_df)
-selected_columns_df = filtered_rank_df[["Nome", "Pontos Semana", "Aerobico para Desempate", "Rank", "Modalidade"]]
-
+selected_columns_df = filtered_rank_df[["Rank", "Nome", "Pontuação", "Desempate (min)", "Modalidade"]].reset_index(drop=True)
+#print(selected_columns_df[selected_columns_df['Modalidade'] == '2x'].drop(columns=["Modalidade"]))
 with st.container():
     st.subheader('Minutos exercitados por Crente:')
     fig = px.bar(filtered_result_df, x='Nome', color="Modalidade",y="Soma de Minutos",
@@ -219,17 +264,20 @@ with st.container():
     st.markdown("---")   
 
 with st.container():
-    col1, col2,col3, col4 = st.columns([1,1,1,1])
+    col1, col2 = st.columns([1,1])
     with col1:
         st.subheader('Modalidade 2x:')
-        st.table(selected_columns_df[selected_columns_df['Modalidade'] == '2x'].drop(columns=["Modalidade"]))
+        st.dataframe(selected_columns_df[selected_columns_df['Modalidade'] == '2x'].drop(columns=["Modalidade"]),hide_index=True)
     with col2:
         st.subheader('Modalidade 3x:')
-        st.table(selected_columns_df[selected_columns_df['Modalidade'] == '3x'].drop(columns=["Modalidade"]))
+        st.dataframe(selected_columns_df[selected_columns_df['Modalidade'] == '3x'].drop(columns=["Modalidade"]),hide_index=True)
+    st.markdown("---")    
+with st.container():
+    col3, col4 = st.columns([1,1])
     with col3:
         st.subheader('Modalidade 4x:')
-        st.table(selected_columns_df[selected_columns_df['Modalidade'] == '4x'].drop(columns=["Modalidade"]))
+        st.dataframe(selected_columns_df[selected_columns_df['Modalidade'] == '4x'].drop(columns=["Modalidade"]),hide_index=True)
     with col4:
         st.subheader('Modalidade 5x:')
-        st.table(selected_columns_df[selected_columns_df['Modalidade'] == '5x'].drop(columns=["Modalidade"]))
+        st.dataframe(selected_columns_df[selected_columns_df['Modalidade'] == '5x'].drop(columns=["Modalidade"]),hide_index=True)
     st.markdown("---")        
