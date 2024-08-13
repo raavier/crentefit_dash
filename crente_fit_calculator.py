@@ -57,47 +57,47 @@ Thaís - 56 + [31]
 Semana 2 - 12/08 à 18/08
 
 5x
-Cássio - 
-Fernanda A. -
+Cássio - 60 +
+Fernanda A. - 54
 Fernanda S. - 40
 Fernanda W. - 82
 Gabi -
-Luciano -
-Marina -
-Pedro Augusto -
+Luciano - 45+
+Marina - 60 + 
+Pedro Augusto - 30
 Samuel - 96
 
 4x
-Amanda M. - 60
+Amanda M. - 32
 Caio -
-David - 
+David - [45]
 João Marcos - 
-Lívia -
-Mairon -
+Lívia - 40 +
+Mairon - 30
 Mary -
-Naama -
+Naama - 51 +
 
 3x
 Amanda G. -
-André -
-Bianca -
+André - 58
+Bianca - [46] +
 Brenda -
 Camila -
 Guilherme -
 Hamilton - 44 + 
 Patrícia -
-Ravier - 
-Talita - 
+Ravier - [90]
+Talita - 31
 
 2x
-Anna -
+Anna - 44
 Carol - 
 João Vitor -
 Julia - 
 Keren -
 Leandro -
 Rebeca - 
-Thaís -
+Thaís - 47
 
 """
 # Split the data by "Semana" to handle multiple weeks
@@ -160,7 +160,13 @@ result = df.groupby(["name", "semana", "type"]).agg(
 result['type_num'] = result['type'].str.replace('x', '').astype(int)
 result['points_week'] = np.where(result['count_minutes'] > 0,np.where(result['count_minutes'] >= result['type_num'], 3, 1),0)
 
-df_ranking = result.groupby(['name', 'type']).agg(
+df_ranking_semana = result.groupby(['name', 'type','semana']).agg(
+    total_minutes_week=('sum_minutes','sum'),
+    total_points_week=('points_week', 'sum'),
+    total_sum_selected_aerobic_minutes=('sum_selected_aerobic_minutes', 'sum')
+).reset_index()
+
+df_ranking = result.groupby(['name', 'type',]).agg(
     total_minutes_week=('sum_minutes','sum'),
     total_points_week=('points_week', 'sum'),
     total_sum_selected_aerobic_minutes=('sum_selected_aerobic_minutes', 'sum')
@@ -183,7 +189,7 @@ df_ranked = df_ranked.sort_values(by=['type', 'rank']).reset_index(drop=True)
 #print(result)
 #print(df_ranked)
 
-
+print(df_ranked)
 
 st.set_page_config(page_title="Crente Fit 2.0",layout="wide")
 
