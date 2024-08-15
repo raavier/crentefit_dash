@@ -97,8 +97,8 @@ João Vitor -
 Julia - 42 
 Keren -
 Leandro -
-Rebeca - 62 + 55
-Thaís - 47 + 59
+Rebeca - 62 + 85 
+Thaís- 47 + 59
 
 """
 # Split the data by "Semana" to handle multiple weeks
