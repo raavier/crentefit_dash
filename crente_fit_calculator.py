@@ -57,47 +57,48 @@ Thaís - 56 + [31]
 Semana 2 - 12/08 à 18/08
 
 5x
-Cássio - 60 +
-Fernanda A. - 54
+Cássio - 60 + 73 +
+Fernanda A. - 54 + 34 +40 
 Fernanda S. - 40
-Fernanda W. - 82
-Gabi -
-Luciano - 45+
-Marina - 60 + 
-Pedro Augusto - 30
-Samuel - 96
+Fernanda W. - 82 + 68 + 46 + 86
+Gabi - 76 + [87]
+Luciano - 45 + 30 +
+Marina - 60 + 73 + 60
+Pedro Augusto - 30 + 56 + 30
+Samuel - 96 + 77 + 62 + 86
+Tiago Lang 100 + 75
 
 4x
-Amanda M. - 32
-Caio -
-David - [45]
-João Marcos - 
-Lívia - 40 +
+Amanda M. - 32 + 60
+Caio - 40 + 37
+David - [45] + 42
+João Marcos - 60 + 60
+Lívia - 40 + 60+ 60
 Mairon - 30
-Mary -
-Naama - 51 +
+Mary - 85 + 76
+Naama - 51 + 35
 
 3x
 Amanda G. -
-André - 58
+André - 58 + [111]
 Bianca - [46] +
 Brenda -
 Camila -
-Guilherme -
+Guilherme - [28] +
 Hamilton - 44 + 
-Patrícia -
+Patrícia - 60 + 61 + 55
 Ravier - [90]
 Talita - 31
 
 2x
 Anna - 44
-Carol - 
+Carol - [111]
 João Vitor -
-Julia - 
+Julia - 42 
 Keren -
 Leandro -
-Rebeca - 
-Thaís - 47
+Rebeca - 62 + 55
+Thaís - 47 + 59
 
 """
 # Split the data by "Semana" to handle multiple weeks
