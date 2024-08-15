@@ -149,33 +149,45 @@ df = pd.DataFrame({
     'minutes': minutes,
     'selected_aerobic': selected_aerobics
 })
+
+
 # Group by name, semana, and type, then count and sum as requested using pandas
 result = df.groupby(["name", "semana", "type"]).agg(
     sum_minutes=("minutes", "sum"),
     count_minutes=("minutes", "count"),
     sum_selected_aerobic_minutes=("minutes", lambda x: x[df.loc[x.index, "selected_aerobic"]].sum())
+    
 ).reset_index()
 
 
+
+
 # Assuming 'result' is a pandas DataFrame and 'type' is a column in it
+
 result['type_num'] = result['type'].str.replace('x', '').astype(int)
 result['points_week'] = np.where(result['count_minutes'] > 0,np.where(result['count_minutes'] >= result['type_num'], 3, 1),0)
 
 df_ranking_semana = result.groupby(['name', 'type','semana']).agg(
     total_minutes_week=('sum_minutes','sum'),
     total_points_week=('points_week', 'sum'),
-    total_sum_selected_aerobic_minutes=('sum_selected_aerobic_minutes', 'sum')
+    total_sum_selected_aerobic_minutes=('sum_selected_aerobic_minutes', 'sum'),
+    distinct_semana_count=("semana", "nunique")
 ).reset_index()
 
+df_ranking_semana["adjusted_sum_selected_aerobic_minutes"] = (df_ranking_semana["total_sum_selected_aerobic_minutes"] / df_ranking_semana["distinct_semana_count"])
+print(df_ranking_semana)
 df_ranking = result.groupby(['name', 'type',]).agg(
     total_minutes_week=('sum_minutes','sum'),
     total_points_week=('points_week', 'sum'),
-    total_sum_selected_aerobic_minutes=('sum_selected_aerobic_minutes', 'sum')
+    total_sum_selected_aerobic_minutes=('sum_selected_aerobic_minutes', 'sum'),
+    distinct_semana_count=("semana", "nunique")
 ).reset_index()
 
+df_ranking["adjusted_sum_selected_aerobic_minutes"] = (df_ranking["total_sum_selected_aerobic_minutes"] / df_ranking["distinct_semana_count"])
+
 def rank_type(df_type):
-    df_type = df_type.sort_values(by=['total_points_week', 'total_sum_selected_aerobic_minutes'], ascending=[False, False])
-    df_type['rank'] = df_type[['total_points_week', 'total_sum_selected_aerobic_minutes']].apply(tuple, axis=1).rank(method='min', ascending=False).astype(int)
+    df_type = df_type.sort_values(by=['total_points_week', 'adjusted_sum_selected_aerobic_minutes'], ascending=[False, False])
+    df_type['rank'] = df_type[['total_points_week', 'adjusted_sum_selected_aerobic_minutes']].apply(tuple, axis=1).rank(method='min', ascending=False).astype(int)
     return df_type
 
 # Apply the ranking function to each group
@@ -242,7 +254,7 @@ filtered_rank_df = filtered_rank_df.rename(columns={
     "type": "Modalidade",
     "total_minutes_week": "Soma Minutos na Semana",
     "total_points_week": "Pontuação",
-    "total_sum_selected_aerobic_minutes": "Desempate (min)",
+    "adjusted_sum_selected_aerobic_minutes": "Média Desempate (min)",
     "rank": "Rank"
 })
 
@@ -252,7 +264,7 @@ filtered_result_df = filtered_result_df.rename(columns={
     "sum_minutes": "Soma de Minutos",
     "count_minutes": "Quantidade de Atividades Registradas na Semana",
     "points_week": "Pontuação",
-    "sum_selected_aerobic_minutes": "Desempate (min)"
+    "adjusted_sum_selected_aerobic_minutes": "Média Desempate (min)"
 })
     
 filtered_result_df = filtered_result_df.drop(columns=['type_num'])
@@ -260,7 +272,7 @@ filtered_result_df = filtered_result_df.drop(columns=['type_num'])
 
 #st.write(filtered_result_df)
 #st.write(filtered_rank_df)
-selected_columns_df = filtered_rank_df[["Rank", "Nome", "Pontuação", "Desempate (min)", "Modalidade"]].reset_index(drop=True)
+selected_columns_df = filtered_rank_df[["Rank", "Nome", "Pontuação", "Média Desempate (min)", "Modalidade"]].reset_index(drop=True)
 #print(selected_columns_df[selected_columns_df['Modalidade'] == '2x'].drop(columns=["Modalidade"]))
 with st.container():
     st.subheader('Minutos exercitados por Crente:')
