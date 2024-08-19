@@ -80,7 +80,7 @@ Naama - 51 + 35 + 49
 
 3x
 Amanda G. -
-André - 58 + [111]
+André - 58 + [111] + 90
 Bianca - [46] +
 Brenda -
 Camila - 38
@@ -93,7 +93,7 @@ Talita - 31 + 66 + [35]
 
 2x
 Anna - 44 + 34
-Carol - [111]
+Carol - [111] + 90
 João Vitor -
 Julia - 42 
 Keren -
