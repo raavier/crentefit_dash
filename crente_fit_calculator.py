@@ -274,13 +274,25 @@ filtered_result_df = filtered_result_df.drop(columns=['type_num'])
 #st.write(filtered_rank_df)
 selected_columns_df = filtered_rank_df[["Rank", "Nome", "Pontuação", "Média Desempate (min)", "Modalidade"]].reset_index(drop=True)
 #print(selected_columns_df[selected_columns_df['Modalidade'] == '2x'].drop(columns=["Modalidade"]))
+print(filtered_result_df)
 with st.container():
     st.subheader('Minutos exercitados por Crente:')
-    fig = px.bar(filtered_result_df, x='Nome', color="Modalidade",y="Soma de Minutos",
-        labels={'Nome': '', "Modalidade": 'Modalidade', 'count':''},
-        category_orders={'Modalidade': sorted(filtered_result_df['Modalidade'].unique())}) 
+    
+    # Create the bar chart
+    fig = px.bar(filtered_result_df, 
+                 x='Nome', 
+                 color="Modalidade", 
+                 y="Soma de Minutos",
+                 labels={'Nome': '', "Modalidade": 'Modalidade', 'Soma de Minutos':''},
+                 category_orders={'Modalidade': sorted(filtered_result_df['Modalidade'].unique())},
+                 text='Soma de Minutos')  # Add labels to each bar
+    
+    # Update layout to customize text appearance if needed
+    fig.update_traces(textposition='auto')
+    
+    # Display the chart in Streamlit
     st.plotly_chart(fig, use_container_width=True)
-    st.markdown("---")   
+    st.markdown("---")  
 
 with st.container():
     col1, col2 = st.columns([1,1])
