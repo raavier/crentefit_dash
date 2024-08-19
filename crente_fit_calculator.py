@@ -43,6 +43,7 @@ Hamilton - [98] + 46 + 41
 Patrícia -
 Ravier - [129] + 39 + 42
 Talita - 64 + 57 + 60 + [53]
+Rebeca - 32 + 40 + 62 
 
 2x
 Anna - 33
@@ -51,7 +52,6 @@ João Vitor -
 Julia - 53 + 41 
 Keren - 25+
 Leandro - 34
-Rebeca - 32 + 40 + 62 
 Thaís - 56 + [31]
 
 Semana 2 - 12/08 à 18/08
@@ -66,7 +66,7 @@ Luciano - 45 + 30 + 41 + 31 + [34]
 Marina - 60 + 73 + 60 + 60 +[64]
 Pedro Augusto - 30 + 56 + 30 + 30 + 30 + [30]
 Samuel - 96 + 77 + 62 + 86 + 103 + [137]
-Tiago Lang 100 + 75+ 115+ [121]
+Tiago Lang - 100 + 75+ 115+ [121]
 
 4x
 Amanda M. - 32 + 60 + 30
@@ -105,11 +105,11 @@ Semana 3 - 19/08 à 25/08
 5x
 Cássio -
 Fernanda A. -
-Fernanda S. -
-Fernanda W. -
+Fernanda S. - 40
+Fernanda W. - 85 
 Gabi - 
 Luciano - 
-Marina - 
+Marina - 60 + 
 Pedro Augusto -
 Samuel - [220]
 Tiago Lang - 
@@ -121,7 +121,7 @@ David -
 João Marcos -
 Lívia -
 Mairon -
-Mary -
+Mary - 82 +
 Naama -
 
 3x
