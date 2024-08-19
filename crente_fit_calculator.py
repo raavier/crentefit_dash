@@ -57,47 +57,47 @@ Thaís - 56 + [31]
 Semana 2 - 12/08 à 18/08
 
 5x
-Cássio - 60 + 73 +
-Fernanda A. - 54 + 34 +40 
-Fernanda S. - 40
-Fernanda W. - 82 + 68 + 46 + 86
-Gabi - 76 + [87]
-Luciano - 45 + 30 +
-Marina - 60 + 73 + 60
-Pedro Augusto - 30 + 56 + 30
-Samuel - 96 + 77 + 62 + 86
-Tiago Lang 100 + 75
+Cássio - 60 + 73 + 60 + 60 +[43]
+Fernanda A. - 54 + 34 +40 + 34 +[51]
+Fernanda S. - 40 + 60 + 45 + 35 + 30 + [46]
+Fernanda W. - 82 + 68 + 46 + 86 + 93 + [137]
+Gabi - 76 + [87] + 75 + 33 + 32
+Luciano - 45 + 30 + 41 + 31 + [34]
+Marina - 60 + 73 + 60 + 60 +[64]
+Pedro Augusto - 30 + 56 + 30 + 30 + 30 + [30]
+Samuel - 96 + 77 + 62 + 86 + 103 + [137]
+Tiago Lang 100 + 75+ 115+ [121]
 
 4x
-Amanda M. - 32 + 60
-Caio - 40 + 37
-David - [45] + 42
-João Marcos - 60 + 60
-Lívia - 40 + 60+ 60
-Mairon - 30
-Mary - 85 + 76
-Naama - 51 + 35
+Amanda M. - 32 + 60 + 30
+Caio - 40 + 37 + 43 + [68]
+David - [45] + 42 + 30 + 48
+João Marcos - 60 + 60 + 30 + 30
+Lívia - 40 + 60+ 60 + [60]+ 60
+Mairon - 30 + [60]
+Mary - 85 + 76 + [101] + 50+ 58
+Naama - 51 + 35 + 49
 
 3x
 Amanda G. -
 André - 58 + [111]
 Bianca - [46] +
 Brenda -
-Camila -
-Guilherme - [28] +
-Hamilton - 44 + 
+Camila - 38
+Guilherme - [28] + 48+ 30
+Hamilton - 44 + 36 + [74]
 Patrícia - 60 + 61 + 55
-Ravier - [90]
-Talita - 31
+Ravier - [90] + 42 + 30
+Rebeca - 62 + 85
+Talita - 31 + 66 + [35]
 
 2x
-Anna - 44
+Anna - 44 + 34
 Carol - [111]
 João Vitor -
 Julia - 42 
 Keren -
 Leandro -
-Rebeca - 62 + 85 
 Thaís - 47 + 59
 
 """
