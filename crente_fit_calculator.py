@@ -95,10 +95,56 @@ Talita - 31 + 66 + [35]
 Anna - 44 + 34
 Carol - [111] + 90
 João Vitor -
-Julia - 42 
+Julia - 42 + 51
 Keren -
 Leandro -
 Thaís - 47 + 59
+
+Semana 3 - 19/08 à 25/08
+
+5x
+Cássio -
+Fernanda A. -
+Fernanda S. -
+Fernanda W. -
+Gabi - 
+Luciano - 
+Marina - 
+Pedro Augusto -
+Samuel - [220]
+Tiago Lang - 
+
+4x
+Amanda M. - 
+Caio -
+David -
+João Marcos -
+Lívia -
+Mairon -
+Mary -
+Naama -
+
+3x
+Amanda G. -
+André - 
+Bianca - 
+Brenda -
+Camila - 
+Guilherme - 
+Hamilton -
+Patrícia - 
+Ravier - 
+Rebeca - 
+Talita -
+
+2x
+Anna -
+Carol - 
+João Vitor -
+Julia - 
+Keren -
+Leandro -
+Thaís -
 
 """
 # Split the data by "Semana" to handle multiple weeks
