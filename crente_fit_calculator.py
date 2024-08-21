@@ -103,45 +103,45 @@ Thaís - 47 + 59
 Semana 3 - 19/08 à 25/08
 
 5x
-Cássio -
-Fernanda A. -
-Fernanda S. - 40
-Fernanda W. - 85 
-Gabi - 
-Luciano - 
-Marina - 60 + 
-Pedro Augusto -
-Samuel - [220]
-Tiago Lang - 
+Cássio - 60 + 60
+Fernanda A. - 31 + 47
+Fernanda S. - 40 + 33
+Fernanda W. - 85 + 82 + 92
+Gabi - 55 + 
+Luciano - 33+
+Marina - 60 + 60 +
+Pedro Augusto - [90] + 66
+Samuel - [220] + 54
+Tiago Lang - 101 +70
 
 4x
-Amanda M. - 
-Caio -
-David -
-João Marcos -
-Lívia -
+Amanda M. - 75 + 50 + 30
+Caio - 50
+David - 73 + [44]
+João Marcos - 75 + 30 + 50
+Lívia - 50+ 60+
 Mairon -
 Mary - 82 +
-Naama -
+Naama - 50
 
 3x
 Amanda G. -
-André - 
+André - 66
 Bianca - 
 Brenda -
-Camila - 
-Guilherme - 
+Camila - 31
+Guilherme - 32
 Hamilton -
 Patrícia - 
-Ravier - 
-Rebeca - 
-Talita -
+Ravier - [116]
+Rebeca - 49 + 52
+Talita - 82
 
 2x
 Anna -
 Carol - 
 João Vitor -
-Julia - 
+Julia - 51
 Keren -
 Leandro -
 Thaís -
