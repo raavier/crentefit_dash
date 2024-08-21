@@ -133,7 +133,7 @@ Camila - 31
 Guilherme - 32
 Hamilton -
 Patrícia - 
-Ravier - [116]
+Ravier - [116] +
 Rebeca - 49 + 52
 Talita - 82
 
