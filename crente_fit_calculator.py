@@ -110,7 +110,7 @@ Fernanda W. - 85 + 82 + 92
 Gabi - 55 + 
 Luciano - 33+
 Marina - 60 + 60 +
-Pedro Augusto - [90] + 66
+Pedro Augusto - [90] + 66 + 63
 Samuel - [220] + 54
 Tiago Lang - 101 +70
 
@@ -133,7 +133,7 @@ Camila - 31
 Guilherme - 32
 Hamilton -
 Patrícia - 
-Ravier - [116] +
+Ravier - [116]
 Rebeca - 49 + 52
 Talita - 82
 
