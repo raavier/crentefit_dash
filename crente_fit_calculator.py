@@ -104,33 +104,33 @@ Semana 3 - 19/08 à 25/08
 
 5x
 Cássio - 60 + 60
-Fernanda A. - 31 + 47
-Fernanda S. - 40 + 33
+Fernanda A. - 31 + 47 +[60 ]+
+Fernanda S. - 40 + 33 + 35
 Fernanda W. - 85 + 82 + 92
-Gabi - 55 + 
-Luciano - 33+
-Marina - 60 + 60 +
+Gabi - 55 + [117]
+Luciano - 33+62+
+Marina - 60 + 60 + 60
 Pedro Augusto - [90] + 66 + 63
-Samuel - [220] + 54
-Tiago Lang - 101 +70
+Samuel - [220] + 54 + 62
+Tiago Lang - 101 +70+73+95
 
 4x
-Amanda M. - 75 + 50 + 30
+Amanda M. - 75 + 50 + 30 67
 Caio - 50
 David - 73 + [44]
-João Marcos - 75 + 30 + 50
-Lívia - 50+ 60+
+João Marcos - 75 + 30 + 50 + 67
+Lívia - 50+ 60+ 70+ [40]+
 Mairon -
-Mary - 82 +
-Naama - 50
+Mary - 82 + [83]
+Naama - 50 + 43
 
 3x
 Amanda G. -
-André - 66
+André - 66 + [116]
 Bianca - 
 Brenda -
 Camila - 31
-Guilherme - 32
+Guilherme - 32 + [21]
 Hamilton -
 Patrícia - 
 Ravier - [116]
@@ -138,12 +138,12 @@ Rebeca - 49 + 52
 Talita - 82
 
 2x
-Anna -
-Carol - 
+Anna - [40]
+Carol - [116]
 João Vitor -
 Julia - 51
-Keren -
-Leandro -
+Keren - 20 +
+Leandro - 35
 Thaís -
 
 """
