@@ -367,7 +367,7 @@ with st.container():
             x='semana',
             y='Porcentagem',
             color='Modalidade',
-            labels={'semana': 'Semana', 'Porcentagem': 'Porcentagem de Aderência (%)', 'Modalidade': 'Modalidade'},
+            labels={'semana': 'Semana', 'Porcentagem': 'Porcentagem de Cumprimento de Metas (%)', 'Modalidade': 'Modalidade'},
             title="Os crentes estão cumprimdo suas metas?",
             markers=True,  # Adiciona marcadores nos pontos de dados
             text='Porcentagem')  # Adiciona os valores como labels"
