@@ -12,8 +12,8 @@ data = """
 Semana 1 - 05/08 à 11/08
 
 5x
-Cássio - 90 + 60 + 30 + 60 +[50]
-Fernanda A. - 72 + 47 + 47 + 36 +[54]
+Cássio - 90 + 60 + 30 + 60 + [50]
+Fernanda A. - 72 + 47 + 47 + 36 + [54]
 Fernanda S. - 30 + 35 + 35
 Fernanda W. - 70 + 89 + [64] + 80 + 80 
 Gabi - 75 + 69 + [62] + 63 + 52
@@ -58,7 +58,7 @@ Semana 2 - 12/08 à 18/08
 
 5x
 Cássio - 60 + 73 + 60 + 60 +[43]
-Fernanda A. - 54 + 34 +40 + 34 +[51]
+Fernanda A. - 54 + 34 +40 + 34 + [51]
 Fernanda S. - 40 + 60 + 45 + 35 + 30 + [46]
 Fernanda W. - 82 + 68 + 46 + 86 + 93 + [137]
 Gabi - 76 + [87] + 75 + 33 + 32
@@ -104,9 +104,9 @@ Semana 3 - 19/08 à 25/08
 
 5x
 Cássio - 60 + 60 + 60 + 60 + [43]
-Fernanda A. - 31 + 47 +[60 ]+ 46 + 49
+Fernanda A. - 31 + 47 +[60]+ 46 + 49
 Fernanda S. - 40 + 33 + 35 + 35 + [30]
-Fernanda W. - 85 + 82 + 92 + [84] + 80
+Fernanda W. - 85 + 82 + 92 + 84 + 80
 Gabi - 55 + [117] + 90 + 32 + 49
 Luciano - 33+62+38+40+[54]
 Marina - 60 + 60 + 60 + 60 + 60 + [40]
@@ -115,7 +115,7 @@ Samuel - [220] + 54 + 62 + 60 + 37
 Tiago Lang - 101 +70 +73 +95 +90 +[35]
 
 4x
-Amanda M. - 75 + 50 + 30 67
+Amanda M. - 75 + 50 + 30 + 67
 Caio - 50 + 43 + 36 + [102]
 David - 73 + [44] + 62 + 64 + 57
 João Marcos - 75 + 30 + 50 + 67 + 30
@@ -144,7 +144,7 @@ João Vitor -
 Julia - 51
 Keren - 20 +
 Leandro - 35 +32
-Thaís -
+Thaís - 0
 
 """
 # Split the data by "Semana" to handle multiple weeks
@@ -196,7 +196,9 @@ df = pd.DataFrame({
     'selected_aerobic': selected_aerobics
 })
 
+distinct_semanas_geral = int(df['semana'].max())
 
+print(distinct_semanas_geral)
 # Group by name, semana, and type, then count and sum as requested using pandas
 result = df.groupby(["name", "semana", "type"]).agg(
     sum_minutes=("minutes", "sum"),
@@ -220,7 +222,7 @@ df_ranking_semana = result.groupby(['name', 'type','semana']).agg(
     distinct_semana_count=("semana", "nunique")
 ).reset_index()
 
-df_ranking_semana["adjusted_sum_selected_aerobic_minutes"] = (df_ranking_semana["total_sum_selected_aerobic_minutes"] / df_ranking_semana["distinct_semana_count"])
+df_ranking_semana["adjusted_sum_selected_aerobic_minutes"] = (df_ranking_semana["total_sum_selected_aerobic_minutes"] / distinct_semanas_geral)
 print(df_ranking_semana)
 df_ranking = result.groupby(['name', 'type',]).agg(
     total_minutes_week=('sum_minutes','sum'),
@@ -229,7 +231,7 @@ df_ranking = result.groupby(['name', 'type',]).agg(
     distinct_semana_count=("semana", "nunique")
 ).reset_index()
 
-df_ranking["adjusted_sum_selected_aerobic_minutes"] = (df_ranking["total_sum_selected_aerobic_minutes"] / df_ranking["distinct_semana_count"])
+df_ranking["adjusted_sum_selected_aerobic_minutes"] = (df_ranking["total_sum_selected_aerobic_minutes"] / distinct_semanas_geral)
 
 def rank_type(df_type):
     df_type = df_type.sort_values(by=['total_points_week', 'adjusted_sum_selected_aerobic_minutes'], ascending=[False, False])
