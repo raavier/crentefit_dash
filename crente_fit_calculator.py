@@ -261,9 +261,7 @@ st.markdown("###")
 st.sidebar.title("CRENTE FIT 2.0")
 st.sidebar.header("Escolha seus filtros: ")
 
-#FILTROS
-#Tipo de Modalidade
-tipoModalidade = st.sidebar.multiselect("Escolha a modalidade: ",sorted(result["type"].unique()))
+tipoModalidade = st.sidebar.multiselect("Escolha a modalidade: ", sorted(result["type"].unique()))
 if not tipoModalidade:
     df_result2 = result.copy()
     df_rank2 = df_ranked.copy()
@@ -271,8 +269,8 @@ else:
     df_result2 = result[result["type"].isin(tipoModalidade)]
     df_rank2 = df_ranked[df_ranked["type"].isin(tipoModalidade)]
 
-#Tipo de Nome
-nomeCrente = st.sidebar.multiselect("Escolha o Crente: ",sorted(df_result2["name"].unique()))
+# Tipo de Nome
+nomeCrente = st.sidebar.multiselect("Escolha o Crente: ", sorted(df_result2["name"].unique()))
 if not nomeCrente:
     df_result3 = df_result2.copy()
     df_rank3 = df_rank2.copy()
@@ -280,18 +278,38 @@ else:
     df_result3 = df_result2[df_result2["name"].isin(nomeCrente)]
     df_rank3 = df_rank2[df_rank2["name"].isin(nomeCrente)]
 
+# Tipo de Semana
+tipoSemana = st.sidebar.multiselect("Escolha a Semana: ", sorted(result["semana"].unique()))
+if not tipoSemana:
+    df_result4 = df_result3.copy()
+else:
+    df_result4 = df_result3[df_result3["semana"].isin(tipoSemana)]
+    
 
-if not tipoModalidade and not nomeCrente:
+# Condicionais finais
+if not tipoModalidade and not nomeCrente and not tipoSemana:
     filtered_result_df = result
     filtered_rank_df = df_ranked
-elif not nomeCrente:
+elif not tipoModalidade and not nomeCrente:
+    filtered_result_df = df_result4.copy()
+    filtered_rank_df = df_ranked
+elif not tipoModalidade and not tipoSemana:
+    filtered_result_df = df_result3[df_result3["name"].isin(nomeCrente)]
+    filtered_rank_df = df_rank3[df_rank3["name"].isin(nomeCrente)]
+elif not nomeCrente and not tipoSemana:
     filtered_result_df = result[result["type"].isin(tipoModalidade)]
     filtered_rank_df = df_ranked[df_ranked["type"].isin(tipoModalidade)]
 elif not tipoModalidade:
-    filtered_result_df = result[result["name"].isin(nomeCrente)]
-    filtered_rank_df = df_ranked[df_ranked["name"].isin(nomeCrente)]
-else:
+    filtered_result_df = df_result4[df_result4["name"].isin(nomeCrente)]
+    filtered_rank_df = df_rank3[df_rank3["name"].isin(nomeCrente)]
+elif not nomeCrente:
+    filtered_result_df = df_result4[df_result4["type"].isin(tipoModalidade)]
+    filtered_rank_df = df_rank3[df_rank3["type"].isin(tipoModalidade)]
+elif not tipoSemana:
     filtered_result_df = df_result3[df_result3["type"].isin(tipoModalidade) & df_result3["name"].isin(nomeCrente)]
+    filtered_rank_df = df_rank3[df_rank3["type"].isin(tipoModalidade) & df_rank3["name"].isin(nomeCrente)]
+else:
+    filtered_result_df = df_result4[df_result4["type"].isin(tipoModalidade) & df_result4["name"].isin(nomeCrente)]
     filtered_rank_df = df_rank3[df_rank3["type"].isin(tipoModalidade) & df_rank3["name"].isin(nomeCrente)]
 
 
@@ -314,13 +332,84 @@ filtered_result_df = filtered_result_df.rename(columns={
 })
     
 filtered_result_df = filtered_result_df.drop(columns=['type_num'])
+# Agrupar os dados por semana e modalidade para calcular o total de pessoas
+total_pessoas_por_semana_modalidade = filtered_result_df.groupby(['semana', 'Modalidade']).size().reset_index(name='Total')
+
+# Filtrar os dados para quem conseguiu 3 pontos, agrupando por semana e modalidade
+pessoas_com_3_pontos_modalidade = filtered_result_df[filtered_result_df['Pontuação'] == 3].groupby(['semana', 'Modalidade']).size().reset_index(name='Conseguiu_3_Pontos')
+
+# Juntar os dois DataFrames para calcular a porcentagem
+df_aderencia_modalidade = pd.merge(total_pessoas_por_semana_modalidade, pessoas_com_3_pontos_modalidade, on=['semana', 'Modalidade'])
+
+# Calcular a porcentagem de pessoas que conseguiram 3 pontos por modalidade
+df_aderencia_modalidade['Porcentagem'] = (df_aderencia_modalidade['Conseguiu_3_Pontos'] / df_aderencia_modalidade['Total']) * 100
+
+# Formatando a porcentagem para ter apenas uma casa decimal
+df_aderencia_modalidade['Porcentagem'] = df_aderencia_modalidade['Porcentagem'].round(1)
+df_aderencia_modalidade['semana'] = df_aderencia_modalidade['semana'].astype(str)
 
 
+# Exibir o DataFrame resultante
+#st.write(df_aderencia_modalidade)
 #st.write(filtered_result_df)
 #st.write(filtered_rank_df)
 selected_columns_df = filtered_rank_df[["Rank", "Nome", "Pontuação", "Média Desempate (min)", "Modalidade"]].reset_index(drop=True)
 #print(selected_columns_df[selected_columns_df['Modalidade'] == '2x'].drop(columns=["Modalidade"]))
-print(filtered_result_df)
+print("filtered_result_df:",filtered_result_df)
+df_weekly_sum = filtered_result_df.groupby(['semana', 'Modalidade'])['Soma de Minutos'].sum().reset_index()
+df_weekly_sum['semana'] = df_weekly_sum['semana'].astype(str)
+with st.container():
+    col1, col2 = st.columns([1,1])
+    with col1:
+        #st.subheader('Aderência a Meta dos Crentes:')
+        # Criar o gráfico de linhas categorizado por Modalidade
+        fig = px.line(df_aderencia_modalidade,
+            x='semana',
+            y='Porcentagem',
+            color='Modalidade',
+            labels={'semana': 'Semana', 'Porcentagem': 'Porcentagem de Aderência (%)', 'Modalidade': 'Modalidade'},
+            title="Os crentes estão cumprimdo suas metas?",
+            markers=True,  # Adiciona marcadores nos pontos de dados
+            text='Porcentagem')  # Adiciona os valores como labels"
+
+        # Ajustar a posição dos labels para ficarem acima dos pontos
+        fig.update_traces(textposition='top left')
+        # Ajustar o layout para garantir que o eixo x mostre apenas valores inteiros
+        fig.update_layout(
+            xaxis=dict(
+                tickmode='array',
+                tickvals=[str(i) for i in sorted(df_aderencia_modalidade['semana'].astype(int).unique())],
+            )
+        )
+        # Exibir o gráfico
+        st.plotly_chart(fig)
+    with col2:
+        #st.subheader('Minutos exercitados por Semana:')
+        # Criando o gráfico
+        fig = px.line(df_weekly_sum,
+                x='semana',
+                y='Soma de Minutos',
+                color='Modalidade',
+                labels={'semana': 'Semana', 'Soma de Minutos': 'Minutos Somados', 'Modalidade': 'Modalidade'},
+                title="Evolução dos Minutos Somados por Semana",
+                category_orders={'semana': sorted(df_weekly_sum['semana'].unique(), key=int),
+                                'Modalidade': sorted(filtered_result_df['Modalidade'].unique())},
+                markers=True,
+                text='Soma de Minutos')  # Adiciona marcadores nos pontos de dados
+        # Ajustar o layout para garantir que o eixo x mostre apenas valores inteiros
+        fig.update_layout(
+            xaxis=dict(
+                tickmode='array',
+                tickvals=[str(i) for i in sorted(df_weekly_sum['semana'].astype(int).unique())],
+            )
+        )
+        # Exibindo o gráfico
+        fig.update_traces(textposition="top center")
+        
+        # Display the chart in Streamlit
+        st.plotly_chart(fig, use_container_width=True)
+st.markdown("---")  
+
 with st.container():
     st.subheader('Minutos exercitados por Crente:')
     
