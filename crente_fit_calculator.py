@@ -103,47 +103,47 @@ Thaís - 47 + 59
 Semana 3 - 19/08 à 25/08
 
 5x
-Cássio - 60 + 60
-Fernanda A. - 31 + 47 +[60 ]+
-Fernanda S. - 40 + 33 + 35
-Fernanda W. - 85 + 82 + 92
-Gabi - 55 + [117]
-Luciano - 33+62+
-Marina - 60 + 60 + 60
-Pedro Augusto - [90] + 66 + 63
-Samuel - [220] + 54 + 62
-Tiago Lang - 101 +70+73+95
+Cássio - 60 + 60 + 60 + 60 + [43]
+Fernanda A. - 31 + 47 +[60 ]+ 46 + 49
+Fernanda S. - 40 + 33 + 35 + 35 + [30]
+Fernanda W. - 85 + 82 + 92 + [84] + 80
+Gabi - 55 + [117] + 90 + 32 + 49
+Luciano - 33+62+38+40+[54]
+Marina - 60 + 60 + 60 + 60 + 60 + [40]
+Pedro Augusto - [90] + 66 + 63 + 35 + 57
+Samuel - [220] + 54 + 62 + 60 + 37
+Tiago Lang - 101 +70 +73 +95 +90 +[35]
 
 4x
 Amanda M. - 75 + 50 + 30 67
-Caio - 50
-David - 73 + [44]
-João Marcos - 75 + 30 + 50 + 67
-Lívia - 50+ 60+ 70+ [40]+
-Mairon -
-Mary - 82 + [83]
-Naama - 50 + 43
+Caio - 50 + 43 + 36 + [102]
+David - 73 + [44] + 62 + 64 + 57
+João Marcos - 75 + 30 + 50 + 67 + 30
+Lívia - 50+ 60+ 70+ [40]+ 80
+Mairon - [61]
+Mary - 82 + [83] +78 + 53 + 60
+Naama - 50 + 43 + 31
 
 3x
 Amanda G. -
-André - 66 + [116]
-Bianca - 
+André - 66 + [116] + 120
+Bianca - 36
 Brenda -
 Camila - 31
-Guilherme - 32 + [21]
-Hamilton -
-Patrícia - 
-Ravier - [116]
-Rebeca - 49 + 52
+Guilherme - 32 + [21] + 30
+Hamilton - 41 + [74]
+Patrícia - 45 + 73
+Ravier - [116] + 90 + 35
+Rebeca - 49 + 52+ 52
 Talita - 82
 
 2x
-Anna - [40]
-Carol - [116]
+Anna - [40] + 32
+Carol - [116] + 120
 João Vitor -
 Julia - 51
 Keren - 20 +
-Leandro - 35
+Leandro - 35 +32
 Thaís -
 
 """
