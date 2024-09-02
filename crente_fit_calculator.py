@@ -190,7 +190,6 @@ Julia - 36 + 57
 Keren - [44] + 28 + 53
 Leandro - 33 + [36]
 Thaís - [41]
-
 """
 # Split the data by "Semana" to handle multiple weeks
 semana_blocks = re.split(r'Semana (\d+) -', data)
