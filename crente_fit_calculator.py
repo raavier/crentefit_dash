@@ -146,6 +146,51 @@ Keren - 20 +
 Leandro - 35 +32
 Thaís - 0
 
+Semana 4 - 26/08 à 01/09
+
+5x
+Cássio - 60 + 60 + 60 + 37 + [57]
+Fernanda A. - 43 + 61 + 40 + 88 + [ 40]
+Fernanda S. - 35
+Fernanda W. - 86 + 126 + [123] + 73 + 66
+Gabi - 45 + 38 + 31 + 34 + [120]
+Luciano - 30 + 56 + 30 + 30 + 32 + [34]
+Marina - 60 + 60 + 60 + 60 + [37]
+Pedro Augusto - 42 + 30 + 58 + 57 + [90]
+Samuel - 100 + 170 + [123] + 74 + 130 + 80 + 110
+Tiago Lang - 
+
+4x
+Amanda M. - 70 + 70 + 70 + 70 + [40]
+Caio - 36 + 31 + 36 + [78]
+David - [42] + 55 + 30 + 71
+João Marcos - 70 + 70 + 55 + 70 + 70 + [40]
+Lívia - 70 + [45] + 70 + 60 + 70 + 60
+Mairon - 30 + 32 + [270]
+Mary - 85 + [86] + 33
+Naama - 46 + [35]
+
+3x
+Amanda G. - 55 + 58 + [49] + 57
+André - 43 + [115] + 38
+Bianca - 39 + [50]
+Camila - [30] + 31 + 32
+Guilherme - [33]
+Hamilton - [95] + 48 + 46
+Patrícia - 58 + 47 + 37 + [50]
+Ravier - [128] + 46 + 32
+Rebeca - 60 + 50
+Talita - 63 + [40] + 58
+
+2x
+Anna - 33
+Carol - [115] + 38
+João Vitor - 92 + 77 + 40
+Julia - 36 + 57
+Keren - [44] + 28 + 53
+Leandro - 33 + [36]
+Thaís - [41]
+
 """
 # Split the data by "Semana" to handle multiple weeks
 semana_blocks = re.split(r'Semana (\d+) -', data)
